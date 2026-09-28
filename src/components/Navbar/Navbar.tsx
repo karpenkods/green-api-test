@@ -112,7 +112,7 @@ export const Navbar: FC = () => {
             (username ? (
               <Stack direction="row" gap="8px" alignItems="center">
                 <Typography variant="body1" fontSize="18px">
-                  Чат с пользователем:
+                  {t('chatWithUser')}
                 </Typography>
                 <Typography
                   variant="h4"
