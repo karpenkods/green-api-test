@@ -42,7 +42,7 @@ export const ChatMessages: FC = () => {
       position="absolute"
       top="140px"
       width={isMobile ? '95%' : '90%'}
-      height="70%"
+      height="60%"
       margin="0 auto"
       gap="24px"
       overflow="auto"
