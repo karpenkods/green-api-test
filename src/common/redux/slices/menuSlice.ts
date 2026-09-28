@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IMenuState } from '../../models/redux'
+
+import { IMenuState } from '../../models'
 
 const initialState: IMenuState = {
   openMenu: false,

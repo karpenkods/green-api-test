@@ -21,7 +21,14 @@ root.render(
     <HelmetProvider context={helmetContext}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <SnackbarProvider hideIconVariant TransitionComponent={Zoom}>
+          <SnackbarProvider
+            hideIconVariant
+            TransitionComponent={Zoom}
+            anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+            classes={{
+              containerAnchorOriginTopLeft: 'snackbar-top-left-offset',
+            }}
+          >
             <BrowserRouter>
               <App />
               <Snackbar />

@@ -21,3 +21,10 @@ export const checkAccountSchema = (
             .min(11, `${t('minimumNumbers')}`)
         : Yup.string().notRequired(),
   })
+
+export const sendMessageSchema = (t: (key: string) => string) =>
+  Yup.object().shape({
+    message: Yup.string()
+      .required(`${t('required')}`)
+      .max(3999, `${t('messageLong')}`),
+  })

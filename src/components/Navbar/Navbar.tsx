@@ -24,7 +24,6 @@ import CloseIcon from '@mui/icons-material/Close'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
-import WallpaperIcon from '@mui/icons-material/Wallpaper'
 import { grey } from '@mui/material/colors'
 
 import ukImage from '../../assets/uk.png'
@@ -54,6 +53,7 @@ export const Navbar: FC = () => {
   const showMenu = useAppSelector((store) => store.menu.showMenu)
   const showLogo = useAppSelector((store) => store.menu.showLogo)
   const darkTheme = useAppSelector((store) => store.theme.theme) === 'dark'
+  const username = useAppSelector((store) => store.chat.username)
   const color = darkTheme ? grey[100] : grey[800]
 
   const theme = useTheme()
@@ -108,29 +108,43 @@ export const Navbar: FC = () => {
               GREEN-API
             </Typography>
           )}
-          {!isTablet && (
-            <Stack>
-              <Typography
-                variant="h4"
-                color="tomato"
-                alignSelf="center"
-                fontFamily="marckScript !important"
-                pt="8px"
-                component="h1"
-              >
-                {t('title')}
-              </Typography>
-              <Typography
-                variant="h5"
-                color="primary"
-                alignSelf="center"
-                fontFamily="marckScript !important"
-                pb="8px"
-              >
-                {t('title2')}
-              </Typography>
-            </Stack>
-          )}
+          {!isTablet &&
+            (username ? (
+              <Stack direction="row" gap="8px" alignItems="center">
+                <Typography variant="body1" fontSize="18px">
+                  Чат с пользователем:
+                </Typography>
+                <Typography
+                  variant="h4"
+                  color="primary"
+                  fontFamily="marckScript !important"
+                >
+                  {username}
+                </Typography>
+              </Stack>
+            ) : (
+              <Stack>
+                <Typography
+                  variant="h4"
+                  color="tomato"
+                  alignSelf="center"
+                  fontFamily="marckScript !important"
+                  pt="8px"
+                  component="h1"
+                >
+                  {t('title')}
+                </Typography>
+                <Typography
+                  variant="h5"
+                  color="primary"
+                  alignSelf="center"
+                  fontFamily="marckScript !important"
+                  pb="8px"
+                >
+                  {t('title2')}
+                </Typography>
+              </Stack>
+            ))}
           <Stack
             width={isSmallMobile ? '100%' : 'auto'}
             direction="row"
@@ -220,36 +234,6 @@ export const Navbar: FC = () => {
                   }}
                 >
                   {t('language')}
-                </ListItemText>
-              </ListItemButton>
-            </ListItem>
-            <ListItem disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                onClick={() =>
-                  changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
-                }
-                sx={{
-                  minHeight: 48,
-                  justifyContent: openMenu ? 'initial' : 'center',
-                  px: 2,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: openMenu ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <WallpaperIcon />
-                </ListItemIcon>
-                <ListItemText
-                  sx={{
-                    opacity: openMenu ? 1 : 0,
-                    color: color,
-                  }}
-                >
-                  {t('background')}
                 </ListItemText>
               </ListItemButton>
             </ListItem>

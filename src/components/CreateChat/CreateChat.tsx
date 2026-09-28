@@ -38,6 +38,10 @@ import {
   useCheckAccountMutation,
   openCreateChatReducer,
   chooseReducer,
+  chatIdReducer,
+  usernameReducer,
+  idInstanceReducer,
+  apiTokenInstanceReducer,
 } from '../../common'
 import './createChat.scss'
 
@@ -103,24 +107,28 @@ export const CreateChat: FC = () => {
 
   useEffect(() => {
     if (isSuccess && data?.exist) {
-      dispatch(pushSuccessNotification(`${t('loginSuccess')}`))
+      dispatch(pushSuccessNotification(t('loginSuccess')))
       dispatch(openCreateChatReducer(false))
+      dispatch(chatIdReducer(data?.chatId))
+      dispatch(usernameReducer(data?.username))
+      dispatch(idInstanceReducer(formik.values.idInstance))
+      dispatch(apiTokenInstanceReducer(formik.values.apiTokenInstance))
       navigate('/chat')
       formik.resetForm()
     }
     if (isSuccess && !data?.exist) {
-      dispatch(pushDangerNotification(`${t('notFound')}`))
+      dispatch(pushDangerNotification(t('notFound')))
     }
     if (error) {
       dispatch(
         pushDangerNotification(
           (error as IError)?.status === 401 || (error as IError)?.status === 404
-            ? `${t('notAuthorized')}`
+            ? t('notAuthorized')
             : (error as IError)?.status === 469
-              ? `${t('serverTelegram_2')}`
+              ? t('serverTelegram_2')
               : (error as IError)?.status === 500
-                ? `${t('serverTelegram_3')}`
-                : `${t('serverTelegram_1')}`,
+                ? t('serverTelegram_3')
+                : t('serverTelegram_1'),
         ),
       )
     }

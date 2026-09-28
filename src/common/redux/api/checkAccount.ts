@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+
 import { ICheckAccountRequest, ICheckAccountResponse } from '../../models'
 
 export const checkAccountApi = createApi({

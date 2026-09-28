@@ -14,19 +14,23 @@ import storage from 'redux-persist/lib/storage'
 import snackbarReducer from './slices/snackbarSlice'
 import menuReducer from './slices/menuSlice'
 import themeAppReducer from './slices/themeSlice'
+import chatReducer from './slices/chatSlice'
 import { checkAccountApi } from './api/checkAccount'
+import { messagesApi } from './api/messages'
 
 const rootReducer = combineReducers({
   [checkAccountApi.reducerPath]: checkAccountApi.reducer,
+  [messagesApi.reducerPath]: messagesApi.reducer,
   snackbar: snackbarReducer,
   menu: menuReducer,
   theme: themeAppReducer,
+  chat: chatReducer,
 })
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: [checkAccountApi.reducerPath],
+  blacklist: [checkAccountApi.reducerPath, messagesApi.reducerPath],
   whitelist: ['theme'],
 }
 
@@ -39,7 +43,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(checkAccountApi.middleware),
+    }).concat(checkAccountApi.middleware, messagesApi.middleware),
 })
 
 export const persistor = persistStore(store)
