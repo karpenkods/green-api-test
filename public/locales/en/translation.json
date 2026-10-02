@@ -41,8 +41,8 @@
   "minimumNumbers": "Minimum of 10 digits",
   "usernameMustStartWithAt": "Username must start with @",
   "notFound": "User not found",
-  "notAuthorized": "Authorization issue; please verify that apiTokenInstance and partnerToken are specified correctly.",
-  "serverTelegram_1": "Error: check that apiTokenInstance and partnerToken are specified correctly, or try again later",
+  "notAuthorized": "Authorization issue; please verify that apiTokenInstance and idInstance are specified correctly.",
+  "serverTelegram_1": "Error: check that apiTokenInstance and idInstance are specified correctly, or try again later",
   "serverTelegram_2": "Restrictions have been placed on the Telegram account. You must wait for the restrictions to be lifted; Telegram does not disclose the duration, so it is recommended to retry the request after a few hours.",
   "serverTelegram_3": "Telegram servers are temporarily unavailable. It is recommended to retry after a few minutes."
 }

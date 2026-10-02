@@ -41,8 +41,8 @@
   "minimumNumbers": "Минимум 10 цифр",
   "usernameMustStartWithAt": "Имя пользователя должно начинаться с @",
   "notFound": "Пользователь не найден",
-  "notAuthorized": "Проблема с авторизацией, проверьте корректность указания apiTokenInstance, partnerToken",
-  "serverTelegram_1": "Ошибка, проверьте корректность указания apiTokenInstance, partnerToken или попробуйте позднее",
+  "notAuthorized": "Проблема с авторизацией, проверьте корректность указания apiTokenInstance, idInstance",
+  "serverTelegram_1": "Ошибка, проверьте корректность указания apiTokenInstance, idInstance или попробуйте позднее",
   "serverTelegram_2": "На аккаунт Telegram наложены ограничения. Требуется дождаться снятия ограничения. Telegram не раскрывает время ограничений, рекомендуется повторить запрос через несколько часов",
   "serverTelegram_3": "Сервера Telegram временно недоступны. Рекомендуется повторить попытку через несколько минут"
 }
